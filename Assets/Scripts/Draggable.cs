@@ -12,7 +12,7 @@ public class Draggable : MonoBehaviour
 
     protected bool isDragged = false;
 
-    void Start()
+    protected virtual void Start()
     {
         this.rb = this.GetComponent<Rigidbody>();
     }
