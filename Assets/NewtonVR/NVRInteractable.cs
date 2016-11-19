@@ -56,6 +56,10 @@ namespace NewtonVR
 
         public virtual void UpdateColliders()
         {
+            /*
+            if (transform.childCount <= 0)
+                return;
+            */
             Colliders = this.GetComponentsInChildren<Collider>();
             NVRInteractables.Register(this, Colliders);
         }

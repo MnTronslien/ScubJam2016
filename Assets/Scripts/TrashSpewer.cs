@@ -23,7 +23,7 @@ public class TrashSpewer : MonoBehaviour
         }
 
         var randomTrashItem = Random.Range(0, TrashItems.Length);
-        var trashitem = Instantiate(TrashItems[randomTrashItem]);
+        var trashitem = (GameObject)Instantiate(TrashItems[randomTrashItem], transform.position, Quaternion.identity);
 
         itemsOnGround.Add(trashitem);
 
