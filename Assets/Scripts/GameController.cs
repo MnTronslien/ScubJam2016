@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        CurrentState = GameState.Paused;
         _guiController = GetComponent<GuiController>();
+        ChangeGameState(GameState.Paused);
         _lastScore = CurrentScore = _startScore;
     }
 	
@@ -34,6 +34,13 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         ChangeGameState(GameState.Running);
+        _guiController.ChangePanel(CurrentState);
+    }
+
+    public void EndGame()
+    {
+        ChangeGameState(GameState.Ended);
+        _guiController.ChangePanel(CurrentState);
     }
 
     public void QuitGame()

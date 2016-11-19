@@ -95,6 +95,24 @@ public class GuiController : MonoBehaviour
         return (i < 10) ? ("0" + i) : "" + i;
     }
 
+    public void ChangePanel(GameState newState)
+    {
+        if (newState == GameState.Running)
+        {
+            SetActivePanel(true, false);  
+        }
+        else if(newState == GameState.Ended)
+        {
+            SetActivePanel(false, true);
+        }
+    }
+
+    private void SetActivePanel(bool gui, bool highScore)
+    {
+        GuiPanel.SetActive(gui);
+        HighScorePanel.SetActive(highScore);
+    }
+
     private void InitHighScore()
     {
         for (int i = 0; i < 10; i++)
