@@ -56,6 +56,7 @@ GameObject:
   - 4: {fileID: 4000013389438260}
   - 114: {fileID: 114000014132732592}
   - 114: {fileID: 114000010351250830}
+  - 114: {fileID: 114000012829710524}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -116,7 +117,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010621122140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 325.7, y: 0, z: 209.97}
+  m_LocalPosition: {x: 330.76, y: 0, z: 232.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -306,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1487c36fb75d2924e8bff712895f43c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HoldButton: 17
+  HoldButton: 2
   HoldButtonDown: 0
   HoldButtonUp: 0
   HoldButtonPressed: 0
@@ -324,6 +325,19 @@ MonoBehaviour:
   CustomModel: {fileID: 0}
   CustomPhysicalColliders: {fileID: 0}
   CurrentlyInteracting: {fileID: 0}
+--- !u!114 &114000012829710524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012594542216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a1fe92003e3a2747a1d2761567c87ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LineColor: {r: 0, g: 0.20588231, b: 1, a: 0}
+  LineWidth: 0.03
 --- !u!114 &114000013156384912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,7 +378,7 @@ MonoBehaviour:
   HoldButtonUp: 0
   HoldButtonPressed: 0
   HoldButtonAxis: 0
-  UseButton: 17
+  UseButton: 16
   UseButtonDown: 0
   UseButtonUp: 0
   UseButtonPressed: 0
