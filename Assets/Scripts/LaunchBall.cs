@@ -32,6 +32,6 @@ public class LaunchBall : MonoBehaviour {
 
     public void Launch( Vector3 velocity )
     {
-        this.target.AddForce(this.force * velocity);
+        this.target.AddForce(this.force * velocity, ForceMode.VelocityChange);
     }
 }

@@ -9,7 +9,9 @@ public class Destroyable : MonoBehaviour
 
     Collider col;
 
+    bool broken = false;
 
+    public float breakForce = 10;
 
 	void Start () 
 	{
@@ -25,7 +27,16 @@ public class Destroyable : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if( collision.relativeVelocity.magnitude >= 1f )
+        if( collision.rigidbody == null || broken )
+        {
+            return;
+        }
+
+        float impactForce = (collision.impulse.magnitude * collision.rigidbody.mass);
+
+        Debug.Log("Impact Force: " + impactForce);
+
+        if( impactForce >= this.breakForce )
         {
             this.Break();
         }
@@ -37,6 +48,8 @@ public class Destroyable : MonoBehaviour
         {
             d.SetActive(true);
         }
+
+        this.broken = true;
 
         Destroy(this.gameObject);
     }
