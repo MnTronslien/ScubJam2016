@@ -9,7 +9,8 @@ public enum CamMovement
 
 public class MoveOverViewCam : MonoBehaviour
 {
-    public Vector3[] Nodes;
+    public Vector3 LookAtPosition = Vector3.zero;
+    public Transform[] Nodes;
     public float MovementSpeed = 5f;
 
     private Vector3 _dir = Vector3.left;
@@ -33,7 +34,12 @@ public class MoveOverViewCam : MonoBehaviour
             SetMoveDir(_left);
         }
 
-        MoveCam();
+	    if (transform.position != Nodes[_currentIndex].position)
+	    {
+            MoveCam();
+        }
+
+        RotateCamera();
 	    HandleIndex();
 	}
 
@@ -49,12 +55,18 @@ public class MoveOverViewCam : MonoBehaviour
 
     private void MoveCam()
     {
-        transform.position = Vector3.MoveTowards(transform.position, Nodes[_currentIndex], 0f) * MovementSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, Nodes[_currentIndex].position, 1f * MovementSpeed * Time.deltaTime);
+        // * MovementSpeed * Time.deltaTime;
+    }
+
+    private void RotateCamera()
+    {
+        transform.LookAt(LookAtPosition);
     }
 
     private void HandleIndex()
     {
-        if (transform.position == Nodes[_currentIndex])
+        if (transform.position == Nodes[_currentIndex].position)
         {
             if (_currentIndex == Nodes.Length - 1)
             {
