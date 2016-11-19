@@ -42,6 +42,14 @@ public class Destroyable : MonoBehaviour
         }
     }
 
+    public void TakeForce( float force )
+    {
+        if( force >= this.breakForce )
+        {
+            this.Break();
+        }
+    }
+
     public void Break()
     {
         foreach( GameObject d in this.debris )
@@ -72,8 +80,6 @@ public class Destroyable : MonoBehaviour
         float xStep = debrisDim.x;
         float yStep = debrisDim.y;
         float zStep = debrisDim.z;
-
-        Debug.LogFormat("X:{0}, Y:{1}, Z:{2}", xStep, yStep, zStep);
 
         for (float x = 0f; x < selfDim.x; x += xStep)
         {
