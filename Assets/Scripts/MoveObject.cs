@@ -16,7 +16,7 @@ public class MoveObject : MonoBehaviour
     public float TimerDelay = 5f;
     public float NextTime = 0;
 
-    private readonly MoveState _defaultMoveState = MoveState.Paused;
+    private readonly MoveState _defaultMoveState = MoveState.Moving;
     private Vector3 _startPos;
     private bool _hasGottenNew = false;
 
@@ -81,13 +81,13 @@ public class MoveObject : MonoBehaviour
 
     private Vector3 GetRandomDir()
     {
-        int x;
-        int z;
+        float x;
+        float z;
 
         do
         {
-            x = Random.Range(-1, 2);
-            z = Random.Range(-1, 2);
+            x = Random.Range(-1f, 1f);
+            z = Random.Range(-1f, 1f);
         } while (x == 0 && z == 0);
 
         if (transform.position.x < _minPositions.x + _maxDistOffset)
@@ -105,21 +105,10 @@ public class MoveObject : MonoBehaviour
     private void HandleMovement()
     {
         transform.LookAt(transform.position + Direction);
-        //        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1f))
-        {
-            if (hit.transform.tag == "Terrain")
-                print(hit.transform.gameObject);
-                //print(hit.transform.GetComponent<TerrainData>().GetSteepness(hit.point.x, hit.point.z));
-        }
 
         float y = GetComponent<Rigidbody>().velocity.y;
         Vector3 move = Direction * MoveSpeed * Time.deltaTime;
         move.y = y;
         GetComponent<Rigidbody>().velocity = move;
-
-
-        //transform.Translate(Direction * MoveSpeed * Time.deltaTime, Space.World);
     }
 }

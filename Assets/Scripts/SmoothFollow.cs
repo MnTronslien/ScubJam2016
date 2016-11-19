@@ -13,17 +13,39 @@ namespace UnityStandardAssets.Utility
 		private float distance = 10.0f;
 		// the height we want the camera to be above the target
 		[SerializeField]
-		private float height = 5.0f;
+		private float height = 8.0f;
 
 		[SerializeField]
 		private float rotationDamping;
 		[SerializeField]
 		private float heightDamping;
 
-		// Use this for initialization
-		void Start() { }
+	    private float _minDistance = 8f;
+	    private float _defaultHeight;
 
-		// Update is called once per frame
+	    void Start()
+	    {
+	        _minDistance = _defaultHeight = height;
+	    }
+
+	    void Update()
+	    {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, -Vector3.up, out hit, 40f))
+            {
+                float hitDistance = Vector3.Distance(transform.position, hit.point);
+
+                if (hitDistance < _minDistance)
+                {
+                    height++;
+                }
+                else if(hitDistance > _minDistance && height > _minDistance)
+                {
+                    height-=0.25f;
+                }
+            }
+        }
+
 		void LateUpdate()
 		{
 			// Early out if we don't have a target
