@@ -21,6 +21,4 @@ public class ResetScript : MonoBehaviour
             manualTest = false;
         }
     }
-
-
 }
