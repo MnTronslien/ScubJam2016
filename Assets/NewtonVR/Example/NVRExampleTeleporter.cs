@@ -42,6 +42,8 @@ namespace NewtonVR.Example
 
         private void LateUpdate()
         {
+            if (Hand == null) return;
+            // Will error during DEBUG without a VR connected
             Line.enabled = (Hand != null && Hand.Inputs[NVRButtons.Trigger].SingleAxis > 0.01f);
 
             if (Line.enabled == true)
