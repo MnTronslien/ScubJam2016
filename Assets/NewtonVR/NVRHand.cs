@@ -20,8 +20,12 @@ namespace NewtonVR
         public bool UseButtonPressed = false;
         public float UseButtonAxis = 0f;
 
+        [Header("Camera movement")]
         public bool LeftPadPressed = false;
         public bool RightPadPressed = false;
+        public MoveOverViewCam moveCam;
+
+
 
         [HideInInspector]
         public bool IsRight;
@@ -216,6 +220,14 @@ namespace NewtonVR
                     Initialize();
                     return;
                 }
+            }
+            if (LeftPadPressed)
+            {
+                moveCam.SetMoveDir(-1);
+            }
+            if (RightPadPressed)
+            {
+                moveCam.SetMoveDir(1);
             }
 
             UpdateButtonStates();
