@@ -38,8 +38,9 @@ public class LaunchHandle : Draggable
             float t = this.feedbackCurve.Evaluate(this.extent);
             this.mat.color = Color.Lerp(this.originalColour, this.tenseColour, t);
             this.audioSource.volume = Mathf.Lerp(0f, 0.35f, t);
-        
-            if( !this.audioSource.isPlaying )
+            this.audioSource.pitch = Mathf.Lerp(0f, 2f, t);
+
+            if ( !this.audioSource.isPlaying )
             {
                 this.audioSource.Play();
             }
