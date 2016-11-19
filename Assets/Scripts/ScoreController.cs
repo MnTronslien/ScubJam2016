@@ -8,9 +8,17 @@ public class ScoreController : MonoBehaviour
 
 	void Start () 
 	{
-        Debris.instances.Clear();   
+        Debris.instances.Clear();
+
+        EventManager.StartListening("ball.finished", endRound);
 	}
 	
+
+    public void endRound()
+    {
+
+    }
+
 	void Update () 
 	{
         float total = 0f;

@@ -38,6 +38,7 @@ public class ExplodeBall : MonoBehaviour
             {
                 this.CheckDestroyables(this.finishExplodeForce, this.finishRadius);
                 this.Explode(this.finishExplodeForce, this.finishRadius);
+                EventManager.TriggerEvent("ball.finished");
                 Destroy(this.gameObject);
             }
         }
