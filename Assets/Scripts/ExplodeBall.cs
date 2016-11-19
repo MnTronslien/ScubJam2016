@@ -13,6 +13,8 @@ public class ExplodeBall : MonoBehaviour
 
     public LayerMask mask;
 
+    public GameObject explodeFx;
+
     bool isShot = false;
     bool isFinished = false;
 
@@ -39,6 +41,7 @@ public class ExplodeBall : MonoBehaviour
                 this.CheckDestroyables(this.finishExplodeForce, this.finishRadius);
                 this.Explode(this.finishExplodeForce, this.finishRadius);
                 EventManager.TriggerEvent("ball.finished");
+                Instantiate(this.explodeFx, this.transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }

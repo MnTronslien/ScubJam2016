@@ -53,6 +53,11 @@ public class GameController : MonoBehaviour
         CurrentScore += points;
     }
 
+    public void SetScore( int points )
+    {
+        CurrentScore = points;
+    }
+
     private void ChangeGameState(GameState newState)
     {
         CurrentState = newState;
