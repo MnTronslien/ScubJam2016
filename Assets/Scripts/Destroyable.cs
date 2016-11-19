@@ -42,6 +42,14 @@ public class Destroyable : MonoBehaviour
         }
     }
 
+    public void TakeForce( float force )
+    {
+        if( force >= this.breakForce )
+        {
+            this.Break();
+        }
+    }
+
     public void Break()
     {
         foreach( GameObject d in this.debris )
