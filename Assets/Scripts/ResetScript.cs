@@ -17,6 +17,7 @@ public class ResetScript : MonoBehaviour
         if (GetComponent<NVRHand>().UseButtonDown || manualTest)
         {
             pinField.Setup();
+            trashSpewer.Reset();
             manualTest = false;
         }
     }

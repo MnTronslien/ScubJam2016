@@ -19,8 +19,9 @@ public class PinField : MonoBehaviour
         foreach(var pin in pins)
         {
             Destroy(pin);
-            pins.Remove(pin);
         }
+
+        pins.Clear();
 
         for(int i = 1; i <= 4; i++)
         {
