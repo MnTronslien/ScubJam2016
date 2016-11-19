@@ -23,7 +23,7 @@ GameObject:
   - 124: {fileID: 124000013303646506}
   - 92: {fileID: 92000010935190846}
   m_Layer: 0
-  m_Name: OverViewCamera
+  m_Name: OverviewCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
