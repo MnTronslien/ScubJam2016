@@ -15,6 +15,12 @@ public enum GameState
     Quit
 }
 
+public enum PowerUpType
+{
+    ScaleUp,
+    Speed
+}
+
 public class Utility : MonoBehaviour
 {
 

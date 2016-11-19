@@ -20,6 +20,13 @@ namespace NewtonVR
         public bool UseButtonPressed = false;
         public float UseButtonAxis = 0f;
 
+        [Header("Camera movement")]
+        public bool LeftPadPressed = false;
+        public bool RightPadPressed = false;
+        public MoveOverViewCam moveCam;
+
+
+
         [HideInInspector]
         public bool IsRight;
         [HideInInspector]
@@ -214,6 +221,14 @@ namespace NewtonVR
                     return;
                 }
             }
+            if (LeftPadPressed)
+            {
+                moveCam.SetMoveDir(-1);
+            }
+            if (RightPadPressed)
+            {
+                moveCam.SetMoveDir(1);
+            }
 
             UpdateButtonStates();
 
@@ -268,6 +283,10 @@ namespace NewtonVR
             UseButtonDown = Inputs[UseButton].PressDown;
             UseButtonUp = Inputs[UseButton].PressUp;
             UseButtonAxis = Inputs[UseButton].SingleAxis;
+
+            LeftPadPressed = Inputs[NVRButtons.DPad_Left].PressDown;
+            RightPadPressed = Inputs[NVRButtons.DPad_Right].PressDown;
+
         }
 
         protected void UpdateInteractions()
